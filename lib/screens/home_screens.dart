@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:money_tracker/constants/constants.dart';
 import 'package:money_tracker/screens/create_get_record.dart';
 import 'package:money_tracker/screens/create_give_record.dart';
+import 'package:money_tracker/screens/details_screens/get_details.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -39,47 +40,55 @@ class HomeScreen extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: kContainer,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: const [
-                            BoxShadow(
-                                blurRadius: 2,
-                                spreadRadius: 2,
-                                color: kContainer)
-                          ]),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 10),
-                      height: 120,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          const Text(
-                            'You have to get',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 23, 151, 0)),
-                          ),
-                          FittedBox(
-                            fit: BoxFit.cover,
-                            child: Row(
-                              children: const [
-                                Text(
-                                  'Rs.',
-                                  style: TextStyle(fontSize: 25),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  '145000',
-                                  style: TextStyle(fontSize: 25),
-                                ),
-                              ],
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const GetDetails()));
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: kContainer,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: const [
+                              BoxShadow(
+                                  blurRadius: 2,
+                                  spreadRadius: 2,
+                                  color: kContainer)
+                            ]),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 10),
+                        height: 120,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            const Text(
+                              'You have to get',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 23, 151, 0)),
                             ),
-                          ),
-                        ],
+                            FittedBox(
+                              fit: BoxFit.cover,
+                              child: Row(
+                                children: const [
+                                  Text(
+                                    'Rs.',
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    '145000',
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -87,47 +96,55 @@ class HomeScreen extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: kContainer,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: const [
-                            BoxShadow(
-                                blurRadius: 2,
-                                spreadRadius: 2,
-                                color: kContainer)
-                          ]),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 10),
-                      height: 120,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          const Text(
-                            'You have to give',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 206, 17, 17)),
-                          ),
-                          FittedBox(
-                            fit: BoxFit.cover,
-                            child: Row(
-                              children: const [
-                                Text(
-                                  'Rs.',
-                                  style: TextStyle(fontSize: 25),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  '250000',
-                                  style: TextStyle(fontSize: 25),
-                                ),
-                              ],
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const GetDetails()));
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: kContainer,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: const [
+                              BoxShadow(
+                                  blurRadius: 2,
+                                  spreadRadius: 2,
+                                  color: kContainer)
+                            ]),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 10),
+                        height: 120,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            const Text(
+                              'You have to give',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 206, 17, 17)),
                             ),
-                          ),
-                        ],
+                            FittedBox(
+                              fit: BoxFit.cover,
+                              child: Row(
+                                children: const [
+                                  Text(
+                                    'Rs.',
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    '250000',
+                                    style: TextStyle(fontSize: 25),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

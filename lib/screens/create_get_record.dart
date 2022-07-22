@@ -12,6 +12,7 @@ class CreateGet extends StatefulWidget {
 }
 
 class _CreateGetState extends State<CreateGet> {
+  TextEditingController _nameController = TextEditingController(text: 'Alex');
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -35,16 +36,19 @@ class _CreateGetState extends State<CreateGet> {
                 children: [
                   Container(
                     child: Column(children: [
-                      const Text(
+                      Text(
                         'I am getting money from',
                         style: TextStyle(
                           fontSize: 18,
                         ),
                       ),
                       TextFormField(
-                        autofocus: true,
+                        controller: _nameController,
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 40),
+                        onChanged: (val) {
+                          print(val);
+                        },
                       ),
                     ]),
                   ),
@@ -66,7 +70,9 @@ class _CreateGetState extends State<CreateGet> {
                   ElevatedButton(
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(kRedButton)),
-                    onPressed: () {},
+                    onPressed: () {
+                      print('hii');
+                    },
                     child: const Padding(
                       padding: EdgeInsets.all(15),
                       child: Text(
