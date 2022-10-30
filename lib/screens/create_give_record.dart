@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:money_tracker/constants/constants.dart';
 import 'package:money_tracker/models/get_record.dart';
+import 'package:money_tracker/screens/success_screen.dart';
 
 import '../dummy_data/get_data.dart';
 
@@ -51,7 +52,9 @@ class _CreateGiveState extends State<CreateGive> {
                       TextFormField(
                         autofocus: true,
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 40),
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: Color.fromARGB(255, 54, 164, 255)),
                         onChanged: (val) {
                           setState(() {
                             name = val;
@@ -72,7 +75,9 @@ class _CreateGiveState extends State<CreateGive> {
                         keyboardType: TextInputType.number,
                         autofocus: true,
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 40),
+                        style: TextStyle(
+                            fontSize: 35,
+                            color: Color.fromARGB(255, 54, 164, 255)),
                         onChanged: (val) {
                           setState(() {
                             amount = int.parse(val);
@@ -88,7 +93,18 @@ class _CreateGiveState extends State<CreateGive> {
                     onPressed: () {
                       Random random = Random();
                       int id = random.nextInt(1000);
-                      getData.add(Record(id: id, name: name, amount: amount));
+                      getData.add(Record(
+                          id: id,
+                          name: name,
+                          amount: amount,
+                          status: false,
+                          dateTime: DateTime.now()));
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SuccessScreen(),
+                        ),
+                      );
                     },
                     child: const Padding(
                       padding: EdgeInsets.all(15),

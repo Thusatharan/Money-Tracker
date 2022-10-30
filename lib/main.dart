@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:money_tracker/constants/constants.dart';
 
 import 'screens/home_screens.dart';
+import 'screens/success_screen.dart';
 
 void main() {
   runApp(const MyApp());

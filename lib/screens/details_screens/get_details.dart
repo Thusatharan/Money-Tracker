@@ -21,6 +21,13 @@ class GetDetails extends StatelessWidget {
           style: TextStyle(color: kGreenTitle),
         ),
         elevation: 0,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.add_rounded),
+            color: kGreenTitle,
+          )
+        ],
       ),
       body: SafeArea(
           child: SizedBox(
@@ -62,51 +69,59 @@ class GetDetails extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              alignment: Alignment.centerRight,
-              margin: EdgeInsets.only(top: 10, right: 50),
-              child: ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(kGreenButton)),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const CreateGive(),
-                    ),
-                  );
-                },
-                child: const Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(
-                    'Add',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-              ),
+            SizedBox(
+              height: 20,
             ),
             Expanded(
               child: Container(
                   child: ListView.builder(
-                itemCount: dummyData.length,
-                itemBuilder: (context, index) => Container(
-                  margin: EdgeInsets.all(10),
-                  padding: EdgeInsets.all(20),
-                  width: double.infinity,
-                  color: kContainer,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        dummyData[index].name,
-                        style: TextStyle(fontSize: 18, color: kGreenTitle),
-                      ),
-                      Text('Rs. ${dummyData[index].amount.toString()}',
-                          style: TextStyle(fontSize: 18, color: kGreenTitle)),
-                    ],
-                  ),
-                ),
-              )),
+                      itemCount: dummyData.length,
+                      itemBuilder: (context, index) => Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: ListTile(
+                              tileColor: kContainer,
+                              leading: (dummyData[index].status)
+                                  ? IconButton(
+                                      padding: EdgeInsets.zero,
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.check_circle_rounded,
+                                        size: 30,
+                                      ),
+                                      color: kGreenTitle,
+                                    )
+                                  : IconButton(
+                                      padding: EdgeInsets.zero,
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.check_circle_outline_rounded,
+                                        size: 30,
+                                      ),
+                                    ),
+                              title: Text(
+                                dummyData[index].name,
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              subtitle: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Rs. ${dummyData[index].amount.toString()}',
+                                    style: TextStyle(color: kGreenTitle),
+                                  ),
+                                  Text(
+                                    dummyData[index].dateTime.day.toString(),
+                                    style: TextStyle(color: kGreenTitle),
+                                  ),
+                                ],
+                              ),
+                              trailing: const Icon(
+                                Icons.delete_rounded,
+                                color: Colors.red,
+                              ),
+                            ),
+                          ))),
             )
           ],
         ),
